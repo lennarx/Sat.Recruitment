@@ -17,14 +17,12 @@ namespace Sat.Recruitment.Services.Users.Commands
         public CreateUserHandler(IUsersRepository repository) => _repository = repository;
         public async Task<User> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            request.Money = CreateUserHelper.HandleMoneyStrategy(request.UserType, request.Money);
-            request.Email = CreateUserHelper.NormalizeMail(request.Email);
 
             var user = new User
             {
                 Name = request.Name,
-                Email = request.Email,
-                Money = request.Money,
+                Email = CreateUserHelper.NormalizeMail(request.Email),
+                Money = CreateUserHelper.HandleMoneyStrategy(request.UserType, request.Money),
                 Address = request.Address,
                 IsActive = true,
                 Phone = request.Phone,

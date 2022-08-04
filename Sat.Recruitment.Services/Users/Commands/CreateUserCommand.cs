@@ -10,13 +10,13 @@ namespace Sat.Recruitment.Services.Users.Commands
 {
     public class CreateUserCommand : IRequest<User>
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Address { get; set; }
-        public string Phone { get; set; }
-        public UserTypeEnum UserType { get; set; }
-        public decimal Money { get; set; }
-        public string Password { get; set; }
+        public string Name { get; }
+        public string Email { get; }
+        public string Address { get; }
+        public string Phone { get; }
+        public UserTypeEnum UserType { get; }
+        public decimal Money { get;  }
+        public string Password { get; }
         public CreateUserCommand(UserCreationForm user)
         {
             Name = user.Name;

@@ -8,7 +8,7 @@ namespace Sat.Recruitment.Services.Users.Commands
 {
     public class DeleteUserCommand : IRequest<User>
     {
-        public ulong Id { get; set; }
+        public ulong Id { get; }
         public DeleteUserCommand(ulong id) => Id = id;
     }
 }

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Sat.Recruitment.Api.Middlewares;
 using Sat.Recruitment.Domain;
 using Sat.Recruitment.Domain.Repository;
 using Sat.Recruitment.Domain.Repository.Users;
@@ -96,6 +97,8 @@ namespace Sat.Recruitment.Api
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseExceptionMiddleware(LoggerFactory.Create(builder => builder.AddConsole()));
 
             app.UseEndpoints(endpoints =>
             {

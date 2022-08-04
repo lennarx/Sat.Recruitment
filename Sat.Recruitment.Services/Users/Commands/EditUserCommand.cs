@@ -10,7 +10,7 @@ namespace Sat.Recruitment.Services.Users.Commands
 {
     public class EditUserCommand : IRequest<User>
     {
-        public UserEditionForm User { get; set; }
+        public UserEditionForm User { get; }
         public EditUserCommand(UserEditionForm user) => User = user;
     }
 }
