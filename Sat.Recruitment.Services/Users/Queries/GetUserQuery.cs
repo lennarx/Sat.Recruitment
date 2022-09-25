@@ -8,7 +8,7 @@ namespace Sat.Recruitment.Services.Users.Queries
 {
     public class GetUserQuery : IRequest<User>
     {
-        public ulong Id { get; set; }
+        public ulong Id { get; }
         public GetUserQuery(ulong id) => Id = id;
     }
 }
